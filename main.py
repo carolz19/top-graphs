@@ -47,11 +47,13 @@ def main():
     text = tp.parseText()
     data = tp.fillDict(text)
     summary = tp.getSummaryData(data)
-    print(summary)
+    # print(summary)
 
     # CHANGE PARAMETERS HERE ======================================================
-    # parameters (leave first parameter): filename that you want your xlsx file to be, where you want your xlsx file to be saved
-    g = Grapher(data=data, filename='example-top-output', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
+    # parameters (leave 1st and 2nd parameter): 
+    #       - filename that you want your xlsx file to be, 
+    #       - where you want your xlsx file to be saved
+    g = Grapher(data=data, summary=summary, filename='example-top-output', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
     # =============================================================================
 
     df1, df_np = g.convertToNumpy()

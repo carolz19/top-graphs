@@ -45,38 +45,10 @@ class TopParser(object):
         summary = {}
 
         # Get individual data points
-        summary['max_cpu'] = max(data.get('cpu'))
-        summary['avg_cpu'] = sum(data.get('cpu')) / len(data.get('cpu'))
-        summary['max_mem'] = max(data.get('mem'))
-        summary['start_mem'] = data.get('mem')[0]
-        summary['end_mem'] = data.get('mem')[len(data.get('mem')) - 1]
+        summary['Max CPU (%)'] = max(data.get('cpu'))
+        summary['Avg CPU (%)'] = sum(data.get('cpu')) / len(data.get('cpu'))
+        summary['Max Mem (MB)'] = max(data.get('mem'))
+        summary['Start Mem (MB)'] = data.get('mem')[0]
+        summary['End Mem (MB)'] = data.get('mem')[len(data.get('mem')) - 1]
 
         return summary
-
-
-
-
-# def main():
-
-#     # CHANGE PARAMETERS HERE ======================================================
-#     # parameters: filename of your top output file, where your top output text file is saved
-#     tp = TopParser(filename='example-top-output', dir_text=r'/Users/cpqa/Desktop/top-graphs/') 
-#     # =============================================================================
-
-#     text = tp.parseText()
-#     data = tp.fillDict(text)
-#     summary = tp.getSummaryData(data)
-#     print(summary)
-
-#     # CHANGE PARAMETERS HERE ======================================================
-#     # parameters (leave first parameter): filename that you want your xlsx file to be, where you want your xlsx file to be saved
-#     g = Grapher(data=data, filename='example-top-output', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
-#     # =============================================================================
-
-#     df1, df_np = g.convertToNumpy()
-#     g.createPlot(df_np)
-#     g.saveAsXLSX(df1)
-
-# if __name__ == "__main__":
-#     main()
-

@@ -5,25 +5,26 @@ import numpy as np
 # Creates graph given dictionary of time, cpu, mem, pow, and pagein values
 class Grapher(object):
 
-    def __init__(self, data, filename, dir_xlsx):
+    def __init__(self, data, summary, filename, dir_xlsx):
         self.data = data # dictionary
         self.filename = filename # filename
         self.dir_xlsx = dir_xlsx # directory path where xlsx file will be save
+        self.summary = summary # summary data (max cpu, max memory, etc)
 
     def convertToNumpy(self):
         # Create a dataframe from data
-        df1 = pd.DataFrame(self.data)
+        df_all = pd.DataFrame(self.data)
 
         # Convert to numpy array
-        df_np = pd.DataFrame(df1).to_numpy()
+        np_all = pd.DataFrame(df_all).to_numpy()
 
-        return df1, df_np
+        return df_all, np_all
 
-    def plotData(self, axs, df_np):
-        axs[0].plot(df_np[:,0], df_np[:,1], "b-", label="CPU")
-        axs[1].plot(df_np[:,0], df_np[:,2], "r-", label="Memory")
-        axs[2].plot(df_np[:,0], df_np[:,3], "g-", label="Power")
-        axs[3].plot(df_np[:,0], df_np[:,4], "c-", label="Pageins")
+    def plotData(self, axs, np_all):
+        axs[0].plot(np_all[:,0], np_all[:,1], "b-", label="CPU")
+        axs[1].plot(np_all[:,0], np_all[:,2], "r-", label="Memory")
+        axs[2].plot(np_all[:,0], np_all[:,3], "g-", label="Power")
+        axs[3].plot(np_all[:,0], np_all[:,4], "c-", label="Pageins")
 
     def setAxisLables(self, axs):
         axs[0].set_ylabel('CPU')
@@ -40,11 +41,11 @@ class Grapher(object):
         # Formatting layout
         plt.tight_layout()
 
-    def createPlot(self, df_np):
+    def createPlot(self, np_all):
         # Create subplots
         fig, axs = plt.subplots(nrows=4, sharex=True, figsize=(20,12))
 
-        self.plotData(axs, df_np)
+        self.plotData(axs, np_all)
         self.setAxisLables(axs)
         self.formatPlot(axs)
 
@@ -52,12 +53,12 @@ class Grapher(object):
         plt.savefig(fname=self.dir_xlsx + self.filename + '.jpg')
         plt.show()
 
-    def saveAsXLSX(self, df1):
+    def saveAsXLSX(self, df_all):
         # Storing data in a excel file
         with pd.ExcelWriter(self.dir_xlsx + self.filename + '.xlsx', engine='xlsxwriter') as writer: # pylint: disable=abstract-class-instantiated
             
-            # Import DataFrame to excel file
-            df1.to_excel(excel_writer=writer, sheet_name='Sheet1', startrow=73, startcol=0)
+            # Import DataFrame of all data points in data dictionary to excel file
+            df_all.to_excel(excel_writer=writer, sheet_name='Sheet1', startrow=73, startcol=1)
 
             # Get workbook and worksheet objects
             workbook = writer.book
@@ -65,7 +66,13 @@ class Grapher(object):
 
             # Add title to sheet
             cell_format = workbook.add_format({'bold':True, 'font_size': 30})
-            worksheet.write_string(0,0,'Benchmark Testing Results', cell_format)
+            worksheet.write_string(0,1,'Benchmark Testing Results', cell_format)
 
-            # Insert PyPlots
-            worksheet.insert_image('A2', self.dir_xlsx + self.filename + '.jpg')
+            # TODO: summary table causes xlsx file to be corrupt
+            # Insert summary table
+            worksheet.add_table('B2:F3')
+            worksheet.write_row('B2', self.summary.keys())
+            worksheet.write_row('B3', self.summary.values())
+
+            # Insert PyPlots image
+            worksheet.insert_image('B6', self.dir_xlsx + self.filename + '.jpg')
