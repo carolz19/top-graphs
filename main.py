@@ -6,9 +6,9 @@
 #     -- modifying the command by adding/removing keys requires changing the code
 #     -- TIP: use tail -f <filename>.txt to display to contents of <filename>.txt in real time (in a new terminal window)
 # - python3 must be installed
-# - Packages needed (I use pip to install)
+# - Packages needed (I used pip to install)
 #     -- pandas, matplotlib, numpy, and xlsxwriter
-# - replace parameters accordingly in main function (at the very bottom of this file)
+# - replace parameters accordingly in main function 
 
 # TO RUN:
 # Windows:
@@ -16,10 +16,10 @@
 #     2. find location of python.exe using 'where python.exe'
 #         -- mine is C:\Users\czhang\Desktop>C:\Users\czhang\AppData\Local\Programs\Python\Python38-32\python.exe
 #     3. navigate to directory of this file using 'cd <path>'
-#     4. run r'C:path\to\python.exe main.py'
+#     4. run 'C:path\to\python.exe main.py'
 # Mac:
 #     1. navigate to directory of this file using 'cd <path>'
-#     2. run r'python3 main.py' 
+#     2. run 'python3 main.py' 
 
 
 """ 
