@@ -24,8 +24,7 @@
 
 """ 
 TODO:
-- add benchmark data points
-- keep only 1 data point per second
+- keep only 1 data point per second (?)
 - make time start at 00:00.00
 - get interval stats
 
@@ -47,10 +46,9 @@ def main():
     text = tp.parseText()
     data = tp.fillDict(text)
     summary = tp.getSummaryData(data)
-    # print(summary)
 
     # CHANGE PARAMETERS HERE ======================================================
-    # parameters (leave 1st and 2nd parameter): 
+    # parameters (leave data and summary parameter): 
     #       - filename that you want your xlsx file to be, 
     #       - where you want your xlsx file to be saved
     g = Grapher(data=data, summary=summary, filename='example-top-output', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
