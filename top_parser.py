@@ -15,6 +15,17 @@ class TopParser(object):
         text = text.split('\n')
         return text
 
+    # Convert time string to flot
+    def parseTimeStrToFloat(self, timeStr):
+        # '08:23.30'
+        timeStr = timeStr.split(':')
+        print(timeStr)
+        # ['08', '23.30']
+        timeStr[1] = float(timeStr[1]) / 60
+        # ['08', 0.38833333333]
+        return float(timeStr[0]) + timeStr[1]
+        # 8.38333333
+
     def fillDict(self, text) -> dict:
         # Initialize dictionary
         data = {
@@ -26,11 +37,20 @@ class TopParser(object):
         }
 
         # Fill dictionary
+        # first_time = 0
+        # first = True
         for row in text:
             row = ' '.join(row.split()) # remove all redundant spaces
             row = row.split(' ') # create a list object
-
+            
             if len(row) == 37:
+                """ if first:
+                    print(row[4])
+                    first_time = self.parseTimeStrToFloat(row[4])
+                    print(first_time)
+                    first = False
+                time_float = self.parseTimeStrToFloat(row[4]) - first_time
+                data.get('time').append(time_float) """
                 data.get('time').append(row[4])
                 data.get('cpu').append(float(row[3]))
                 data.get('mem').append(float(row[8]))
