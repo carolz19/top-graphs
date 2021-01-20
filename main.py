@@ -40,7 +40,7 @@ def main():
 
     # CHANGE PARAMETERS HERE ======================================================
     # parameters: filename of your top output file, where your top output text file is saved
-    tp = TopParser(filename='example-top-output', dir_text=r'/Users/cpqa/Desktop/top-graphs/') 
+    tp = TopParser(filename='top-output-6.3.0-video-1min', dir_text=r'/Users/cpqa/Desktop/top-graphs/') 
     # =============================================================================
 
     text = tp.parseText()
@@ -51,7 +51,7 @@ def main():
     # parameters (leave data and summary parameter): 
     #       - filename that you want your xlsx file to be, 
     #       - where you want your xlsx file to be saved
-    g = Grapher(data=data, summary=summary, filename='example-top-output', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
+    g = Grapher(data=data, summary=summary, filename='top-output-6.3.0-video-1min', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
     # =============================================================================
 
     df1, df_np = g.convertToNumpy()
