@@ -1,27 +1,3 @@
-# DESCRIPTION:
-# Converts top output in a text file into a graphical format.
-
-# READ ME BEFORE EXECUTING:
-# - Make sure to use this command: top | grep Bria\ Enterprise >> <filename>.txt 
-#     -- modifying the command by adding/removing keys requires changing the code
-#     -- TIP: use tail -f <filename>.txt to display to contents of <filename>.txt in real time (in a new terminal window)
-# - python3 must be installed
-# - Packages needed (I used pip to install)
-#     -- pandas, matplotlib, numpy, and xlsxwriter
-# - replace parameters accordingly in main function 
-
-# TO RUN:
-# Windows:
-#     1. open cmd prompt
-#     2. find location of python.exe using 'where python.exe'
-#         -- mine is C:\Users\czhang\Desktop>C:\Users\czhang\AppData\Local\Programs\Python\Python38-32\python.exe
-#     3. navigate to directory of this file using 'cd <path>'
-#     4. run 'C:path\to\python.exe main.py'
-# Mac:
-#     1. navigate to directory of this file using 'cd <path>'
-#     2. run 'python3 main.py' 
-
-
 """ 
 TODO:
 - keep only 1 data point per second (?)
@@ -38,21 +14,17 @@ from grapher import Grapher
 
 def main():
 
-    # CHANGE PARAMETERS HERE ======================================================
     # parameters: filename of your top output file, where your top output text file is saved
-    tp = TopParser(filename='top-output-6.3.0-video-1min', dir_text=r'/Users/cpqa/Desktop/top-graphs/') 
-    # =============================================================================
+    tp = TopParser(filename=str(sys.argv[0]), dir_text=str(sys.argv[1])) 
 
     text = tp.parseText()
     data = tp.fillDict(text)
     summary = tp.getSummaryData(data)
 
-    # CHANGE PARAMETERS HERE ======================================================
     # parameters (leave data and summary parameter): 
     #       - filename that you want your xlsx file to be, 
     #       - where you want your xlsx file to be saved
-    g = Grapher(data=data, summary=summary, filename='top-output-6.3.0-video-1min', dir_xlsx=r'/Users/cpqa/Desktop/top-graphs/')
-    # =============================================================================
+    g = Grapher(data=data, summary=summary, filename=str(sys.argv[0]), dir_xlsx=str(sys.argv[1]))
 
     df1, df_np = g.convertToNumpy()
     g.createPlot(df_np)
