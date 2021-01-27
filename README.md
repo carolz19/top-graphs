@@ -8,7 +8,7 @@ Note: Setup instruction aimed for Unix/Linux machines, but can be easily adapted
 ```
 top | grep PROCESSNAME > OUTPUTTEXTFILE.txt
 ```
-For example:
+Example:
 ```
 top | grep Bria\ Enterprise > video-call-intervals.txt
 ```
