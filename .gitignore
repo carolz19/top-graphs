@@ -3,3 +3,4 @@ __pycache__
 example-top-output.jpg
 example-top-output.xlsx
 ~$example-top-output.xlsx
+.DS_Store
