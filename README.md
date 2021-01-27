@@ -32,6 +32,7 @@ Example:
 ```
 cd path/to/main/
 ```
+
 2. Run the following command in terminal (do not include .txt)
 ```
 python3 main.py outputfilename /path/to/my/outputfile/
