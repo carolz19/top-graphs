@@ -1,5 +1,5 @@
 # top-graphs
-Creates a graphical representation from the output of the Linux top command using mainly Matplotlib. A focus is put on memory, CPU, and pageins.
+Get a graphical representation from the output of the Unix/Linux top command for a specific process.
 
 ## Setup
 Note: Setup instruction aimed for Unix/Linux machines, but can be easily adapted for Windows machines.
