@@ -2,7 +2,7 @@
 Get a graphical representation from the output of the Unix/Linux top command for a specific process.
 
 ## Setup
-Note: Setup instruction aimed for Unix/Linux machines.
+
 ### Part 1: Get your data
 1. Enter the following in terminal to output data from the top command:
 ```
