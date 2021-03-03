@@ -30,12 +30,12 @@ pip3 install -r requirements.txt
 1. Navigate to directory containing **main.py** in your terminal.
 Example:
 ```
-cd path/to/main/
+cd PATH/TO/MAIN/
 ```
 
 2. Run the following command in terminal (do not include .txt and remember to include the slash at the end of the path name!)
 ```
-python3 main.py topoutputfilename /path/to/my/topoutputfile/
+python3 main.py OUTPUTTEXTFILE /PATH/TO/MY/OUTPUTTEXTFILE/
 ```
 Example (if you named your top output file "video-call-intervals" and you saved that file in "/Users/cpqa/"):
 ```
