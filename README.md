@@ -33,15 +33,15 @@ Example:
 cd path/to/main/
 ```
 
-2. Run the following command in terminal (do not include .txt)
+2. Run the following command in terminal (do not include .txt and remember to include the slash at the end of the path name!)
 ```
-python3 main.py outputfilename /path/to/my/outputfile/
+python3 main.py topoutputfilename /path/to/my/topoutputfile/
 ```
-Example:
+Example (if you named your top output file "video-call-intervals" and you saved that file in "/Users/cpqa/"):
 ```
 python3 main.py video-call-intervals /Users/cpqa/
 ```
-Note: The resulting Excel file will be saved in the same directory as your text file containing the top output data.
+Note: An interactive graph will pop-up and when you close that window, an Excel file will be generated and saved in the same directory as your top output text file.
 
 
 ## Example Output Graph
