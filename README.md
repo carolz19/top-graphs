@@ -1,5 +1,5 @@
 # top-graphs
-Get a graphical representation from the output of the Unix/Linux top command for a specific process.
+Get a graphical representation from the output of the Unix/Linux top command for a specific process. A focus is put on memory, CPU, power, and page-ins.
 
 ## Setup
 
