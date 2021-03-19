@@ -1,11 +1,3 @@
-""" 
-TODO:
-- keep only 1 data point per second (?)
-- make time start at 00:00.00
-- get interval stats
-
-"""
-
 import sys
 sys.path.append('.')
 

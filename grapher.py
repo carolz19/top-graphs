@@ -96,25 +96,3 @@ class Grapher(object):
         )
 
         workbook.close()
-
-        # with pd.ExcelWriter(self.dir_xlsx + self.filename + '.xlsx', engine='xlsxwriter') as writer: # pylint: disable=abstract-class-instantiated
-            
-        #     # Import DataFrame of all data points in data dictionary to excel file
-        #     df_all.to_excel(excel_writer=writer, sheet_name='Sheet1', startrow=73, startcol=1)
-
-        #     # Get workbook and worksheet objects
-        #     workbook = writer.book
-        #     worksheet = writer.sheets['Sheet1']
-
-        #     # Add title to sheet
-        #     cell_format = workbook.add_format({'bold':True, 'font_size': 30})
-        #     worksheet.write_string(0,1,'Benchmark Testing Results', cell_format)
-
-        #     # TODO: summary table causes xlsx file to be corrupt
-        #     # Insert summary table
-        #     worksheet.add_table('B2:F3')
-        #     worksheet.write_row('B2', self.summary.keys())
-        #     worksheet.write_row('B3', self.summary.values())
-
-        #     # Insert PyPlots image
-        #     worksheet.insert_image('B6', self.dir_xlsx + self.filename + '.jpg')
